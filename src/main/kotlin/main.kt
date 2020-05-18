@@ -90,10 +90,14 @@ fun postToSlack(remindIssues: RemindIssues) {
     // TODO: 0件だった場合ハッピーな文言を送る
     // TODO: エラーハンドリング
     createOverdueMessage(remindIssues.overdueIssues)?.let {
-        Fuel.post(property.slackWebHookUrl).body(adapter.toJson(it)).response()
+        Fuel.post(property.slackWebHookUrl)
+            .header(mapOf("Content-Type" to "application/json"))
+            .body(adapter.toJson(it)).response()
     }
     createUpcomingMessage(remindIssues.upcomingIssues)?.let {
-        Fuel.post(property.slackWebHookUrl).body(adapter.toJson(it)).response()
+        Fuel.post(property.slackWebHookUrl)
+            .header(mapOf("Content-Type" to "application/json"))
+            .body(adapter.toJson(it)).response()
     }
 }
 

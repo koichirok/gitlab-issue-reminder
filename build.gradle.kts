@@ -17,6 +17,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
+    implementation("org.jetbrains.kotlin", "kotlin-reflect", "1.3.0")
     implementation("com.github.kittinunf.fuel", "fuel", "1.16.0")
     implementation("com.github.kittinunf.fuel", "fuel-moshi", "1.16.0")
     implementation("com.squareup.moshi", "moshi-kotlin", "1.7.0")
