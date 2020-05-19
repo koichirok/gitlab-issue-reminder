@@ -7,7 +7,8 @@ data class Issue(
         @field:Json(name = "labels") val labels: List<String>,
         @field:Json(name = "web_url") val webUrl: String,
         @field:Json(name = "due_date") val dueDate: Date?,
-        val author: Author?
+        val author: Author?,
+        val assignee: Author?
 )
 
 data class Author(

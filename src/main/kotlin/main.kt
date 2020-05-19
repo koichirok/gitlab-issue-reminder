@@ -111,7 +111,7 @@ fun createUpcomingMessage(issueList: List<Issue>): Message? {
                 attachment.title = it.title
                 attachment.title_link = it.webUrl
                 attachment.footer = it.labels.flat()
-                attachment.text = "<@${it.author?.username}>"
+                attachment.text = "<@${it.assignee?.username ?: it.author?.username}>"
                 attachment.color = "warning"
                 attachment.ts = (it.dueDate?.time?.div(1000))?.toInt() ?: 0
                 message.attachments!!.add(attachment)
@@ -129,7 +129,7 @@ fun createOverdueMessage(issueList: List<Issue>): Message? {
                 attachment.title = it.title
                 attachment.title_link = it.webUrl
                 attachment.footer = it.labels.flat()
-                attachment.text = "<@${it.author?.username}>"
+                attachment.text = "<@${it.assignee?.username ?: it.author?.username}>"
                 attachment.color = "danger"
                 attachment.ts = (it.dueDate?.time?.div(1000))?.toInt() ?: 0
                 message.attachments!!.add(attachment)
